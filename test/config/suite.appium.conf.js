@@ -98,19 +98,18 @@ exports.config = {
     // commands. Instead, they hook themselves up into the test process.
     //
     //services: ['selenium-standalone', 'phantomjs'],
-    services: ['appium',['image-comparison',
+    services: ['appium',['native-app-compare',
         // The options
-        {
-            // Some options, see the docs for more
-            baselineFolder: join(process.cwd(), './tests/sauceLabsBaseline/'),
-            formatImageName: '{tag}-{logName}-{width}x{height}',
-            screenshotPath: join(process.cwd(), '.tmp/'),
-            savePerInstance: true,
-            blockOutStatusBar: true,
-            blockOutToolBar: true,
-            // ... more options
-        }]],
+       ]],
     //
+    nativeAppCompare: {
+        // Some options, see the docs for more
+        baselineFolder: join(process.cwd(), '.tmp/'),
+        formatImageName: '{tag}-{logName}-{width}x{height}',
+        screenshotPath: join(process.cwd(), '.tmp/'),
+        autoSaveBaseline: true
+        // ... more options
+    },
     logLevel: 'trace',
     framework: 'cucumber',
     reporters: [

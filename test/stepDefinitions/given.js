@@ -12,5 +12,5 @@ Given(/^I am on the search page$/, function () {
 Given('I am on the phptravels page', function () {
   // Write code here that turns the phrase above into concrete actions
   loginPage.open();     // navigating to login page
-  browser.checkScreen('test');
+  expect(browser.compareScreen('test',{autoSaveBaseline: true}).misMatchPercentage).equal(0);
 });
